@@ -5,8 +5,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
 
-Application used to lean Android native development. Slowly but surely i hope to expand on this application as i learn.
-In each branch i hope to dive into a subject and expand upon it. Expect a lot of documentation and proper testing.
+Application used to introduce myself and my interests to other people.
+I will be slowly expanding on this application as I discover all the wonders of Android application development.
 
 ## Table of content
 - [Deployment](#Deployment)
@@ -23,7 +23,7 @@ In each branch i hope to dive into a subject and expand upon it. Expect a lot of
 ### Clone or download the repository
 
 ```shell
-git clone https://github.com/ChristiaensGregor/Learning_Android.git
+git clone https://github.com/ChristiaensGregor/Android_IntroductionApplication.git
 cd appname
 ```
 ## Functionality overview
