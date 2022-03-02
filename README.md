@@ -24,7 +24,7 @@ I will be slowly expanding on this application as I discover all the wonders of 
 
 ```shell
 git clone https://github.com/ChristiaensGregor/Android_IntroductionApplication.git
-cd appname
+cd Android_IntroductionApplication
 ```
 ## Functionality overview
 * Feature 1
