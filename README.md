@@ -1,5 +1,5 @@
 # Introduction Application
-[![Trello Board](https://img.shields.io/badge/Planning-Trello-brightred.svg?style=flat-square)](https://trello.com/b/vz8L1pjv/learning-android)
+[![Trello Board](https://img.shields.io/badge/Planning-Trello-brightred.svg?style=flat-square)](https://trello.com/b/1Oq2Anks/introduction-application)
 
 [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
