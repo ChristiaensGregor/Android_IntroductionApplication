@@ -12,4 +12,5 @@
     <string name="temp_landing">Landing Page with logo and background</string>
     <string name="temp_login">Login page with login options and email/pw fields</string>
     <string name="email_fab">Email icon, want to contact me send me a mail straight away using this button.</string>
+    <string name="logo_description">Image Personal Logo, Initials, Desk, Chair, Laptop</string>
 </resources>
