@@ -27,7 +27,7 @@ class LaunchActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_launcher) as NavHostFragment
         val navController = navHostFragment.navController
-        //Original setup for appBarConfiguration using the navGraph to decide what fragments to show the upnavigation on.
+        //Original setup for appBarConfiguration using the navGraph to decide what fragments to show the upNavigation on.
         //appBarConfiguration = AppBarConfiguration(navController.graph)
         //Pass a set of top level destinations that wont display the navigate up arrow
         appBarConfiguration = AppBarConfiguration(setOf(R.id.landingFragment, R.id.loginFragment))
