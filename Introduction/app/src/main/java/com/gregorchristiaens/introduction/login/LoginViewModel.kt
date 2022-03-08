@@ -31,6 +31,10 @@ class LoginViewModel : ViewModel() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d("LoginTest", "signInWithEmailAndPassword:success")
+                        val user = auth.currentUser
+                        if (user != null) {
+                            Log.d("LoginTest", "Logged in user: ${user.email}")
+                        }
                         _navigateToProfile.value = true
                     } else {
                         val message = task.exception!!.message.toString()

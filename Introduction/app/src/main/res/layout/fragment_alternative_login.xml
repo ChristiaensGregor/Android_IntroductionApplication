@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context=".altlogin.AlternativeLoginFragment">
+    tools:context=".altLogin.AlternativeLoginFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginGithub"

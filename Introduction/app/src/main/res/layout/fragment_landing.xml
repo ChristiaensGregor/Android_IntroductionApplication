@@ -93,7 +93,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_alternative_login"
-        android:name="com.gregorchristiaens.introduction.altlogin.AlternativeLoginFragment"
+        android:name="com.gregorchristiaens.introduction.altLogin.AlternativeLoginFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
