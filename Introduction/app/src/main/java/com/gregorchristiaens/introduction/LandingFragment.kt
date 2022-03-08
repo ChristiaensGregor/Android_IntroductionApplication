@@ -31,7 +31,7 @@ class LandingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
+        binding.loginEmail?.setOnClickListener {
             findNavController().navigate(R.id.action_landingFragment_to_loginFragment)
         }
     }

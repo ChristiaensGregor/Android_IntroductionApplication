@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w600dp-land/fragment_landing.xml" value="0.18" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w600dp/fragment_landing.xml" value="0.18" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/activity_launcher.xml" value="0.1" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/background_landing.xml" value="0.358695652173913" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/content_launcher.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/content_login.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_landing.xml" value="0.25" />
-        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_login.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_alternative_login.xml" value="0.22" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_landing.xml" value="0.15" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_login.xml" value="0.15" />
       </map>
     </option>
   </component>

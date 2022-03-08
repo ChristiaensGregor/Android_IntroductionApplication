@@ -9,13 +9,11 @@
     <fragment
         android:id="@+id/landingFragment"
         android:name="com.gregorchristiaens.introduction.LandingFragment"
-        android:label="@string/landing_fragment_label"
         tools:layout="@layout/fragment_landing">
         <action
             android:id="@+id/action_landingFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/landingFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

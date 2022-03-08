@@ -6,15 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
+import com.gregorchristiaens.introduction.databinding.FragmentAlternativeLoginBinding
 import com.gregorchristiaens.introduction.databinding.FragmentLoginBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
-class LoginFragment : Fragment() {
+class AlternativeLoginFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+
+    private var _binding: FragmentAlternativeLoginBinding? = null
 
     /**
      * This property is only valid between [onCreateView] and [onDestroyView].
@@ -25,20 +23,20 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentAlternativeLoginBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.loginEmailLogin.setOnClickListener {
-            Toast.makeText(context, "Login Email", Toast.LENGTH_SHORT).show()
+        binding.navigateToRegister.setOnClickListener {
+            Toast.makeText(context, "Register", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        binding.loginGoogle.setOnClickListener {
+            Toast.makeText(context, "Google Login", Toast.LENGTH_SHORT).show()
+        }
+        binding.loginGithub.setOnClickListener {
+            Toast.makeText(context, "GitHub Login", Toast.LENGTH_SHORT).show()
+        }
     }
 }
