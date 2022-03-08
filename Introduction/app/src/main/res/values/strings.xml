@@ -5,29 +5,21 @@
     <string name="landing_fragment_label">Landing</string>
     <string name="login_fragment_label">Login</string>
     <!-- Landing Fragment -->
-    <string name="login">Login</string>
-    <!-- Login Fragment -->
-    <string name="logout">Logout</string>
-    <!-- Temp TODO Remove temp strings-->
-    <string name="temp_landing">Landing Page with logo and background</string>
-    <string name="temp_login">Login page with login options and email/pw fields</string>
-    <string name="email_fab">Email icon, want to contact me send me a mail straight away using this button.</string>
     <string name="logo_description">Image Personal Logo, Initials, Desk, Chair, Laptop</string>
-    <string name="google">Google</string>
-    <string name="register_background">White background for register text</string>
-    <string name="sign_up">Sign up</string>
-    <string name="sign_in_with">Sign in with:</string>
-    <string name="email_and_password">email and password</string>
-    <string name="github">GitHub</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="register_question">Don\'t have an account? Register</string>
-    <string name="or_login_in_with">Or login in with</string>
     <string name="login_email_info">Login with email and password</string>
-    <string name="email_address">Email Address</string>
     <string name="or">OR</string>
     <string name="welcome_back">Welcome back</string>
+    <!-- Login Fragment -->
     <string name="image_karate_bow">Image karate bow</string>
+    <string name="email_and_password">email and password</string>
+    <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="forgot_your_password">Forgot your password?</string>
+    <string name="login">Login</string>
+    <!-- Alternative Login Fragment-->
+    <string name="or_login_in_with">Or login in with</string>
+    <string name="google">Google</string>
+    <string name="github">GitHub</string>
+    <string name="register_question">Don\'t have an account? Register</string>
+    <!-- Temp TODO Remove temp strings-->
 </resources>
