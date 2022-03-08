@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w600dp-land/fragment_landing.xml" value="0.18" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w600dp/fragment_landing.xml" value="0.18" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/activity_launcher.xml" value="0.1" />
@@ -13,6 +15,7 @@
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_alternative_login.xml" value="0.22" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_landing.xml" value="0.15" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_login.xml" value="0.15" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
       </map>
     </option>
   </component>

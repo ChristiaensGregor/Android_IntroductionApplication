@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".LandingFragment">
+    tools:context=".landing.LandingFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -93,7 +93,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_alternative_login"
-        android:name="com.gregorchristiaens.introduction.AlternativeLoginFragment"
+        android:name="com.gregorchristiaens.introduction.altlogin.AlternativeLoginFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -8,20 +8,35 @@
 
     <fragment
         android:id="@+id/landingFragment"
-        android:name="com.gregorchristiaens.introduction.LandingFragment"
+        android:name="com.gregorchristiaens.introduction.landing.LandingFragment"
         tools:layout="@layout/fragment_landing">
         <action
             android:id="@+id/action_landingFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_landingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.gregorchristiaens.introduction.LoginFragment"
+        android:name="com.gregorchristiaens.introduction.login.LoginFragment"
         android:label="@string/login_fragment_label"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.gregorchristiaens.introduction.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_landingFragment"
             app:destination="@id/landingFragment" />
     </fragment>
 </navigation>
