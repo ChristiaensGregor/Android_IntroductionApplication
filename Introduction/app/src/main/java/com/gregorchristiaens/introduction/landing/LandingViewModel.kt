@@ -31,6 +31,7 @@ class LandingViewModel(userRepository: UserRepository) : ViewModel() {
         val fu = auth.currentUser
         if (fu != null) {
             Log.d(logKey, "Found a logged in user")
+            //When the user returns his info is stored and acquired in the UserRepository INSTANCE
             userRepository.setUserData(fu)
             _user.value = userRepository.user.value
             _firebaseUser.value = fu!!

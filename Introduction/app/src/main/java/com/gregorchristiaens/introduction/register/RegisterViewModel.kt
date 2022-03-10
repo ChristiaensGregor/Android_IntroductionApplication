@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.gregorchristiaens.introduction.repository.UserRepository
 
-class RegisterViewModel(userRepository: UserRepository) : ViewModel() {
+class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val logKey = "RegisterViewModel"
 
@@ -73,6 +73,8 @@ class RegisterViewModel(userRepository: UserRepository) : ViewModel() {
                 .build()
             user.updateProfile(profileUpdates).addOnCompleteListener { update ->
                 if (update.isSuccessful) {
+                    //After registering the users data is passed to the UserRepository
+                    userRepository.setUserData(user)
                     _navigateToProfile.value = true
                 }
             }
