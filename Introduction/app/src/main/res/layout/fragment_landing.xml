@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:padding="15dp"
+    android:tag="landing_default"
     tools:context=".landing.LandingFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -12,14 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,68 +41,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_max="250dp"
         tools:ignore="ImageContrastCheck" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/email_and_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline2" />
-
-    <View
-        android:id="@+id/loginDivider1"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@id/loginDividerOr"
-        app:layout_constraintEnd_toStartOf="@id/loginDividerOr"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/loginDividerOr" />
-
-    <View
-        android:id="@+id/loginDivider2"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@id/loginDividerOr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/loginDividerOr"
-        app:layout_constraintTop_toTopOf="@id/loginDividerOr" />
-
-
-    <TextView
-        android:id="@+id/loginDividerOr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:elevation="1dp"
-        android:outlineProvider="none"
-        android:padding="5dp"
-        android:text="@string/or"
-        android:textColor="@color/primary_light"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginEmail"
-        tools:ignore="TextContrastCheck" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/container_alternative_login"
-        android:name="com.gregorchristiaens.introduction.altLogin.AlternativeLoginFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginDividerOr" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,17 +13,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@drawable/background_tablet"
         android:padding="15dp"
         android:tag="login_default"
         tools:context=".login.LoginFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2" />
+            app:layout_constraintGuide_percent="0.3" />
 
         <ProgressBar
             android:id="@+id/loginProgressBar"
@@ -47,12 +54,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:hint="@string/email_address"
@@ -61,7 +69,7 @@
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/passwordField"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_vertical"
             app:layout_constraintTop_toBottomOf="@+id/guide_top"
             app:layout_constraintVertical_chainStyle="packed"
             tools:ignore="TextContrastCheck">
@@ -78,7 +86,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="password"
             android:hint="@string/password"
@@ -89,7 +97,7 @@
             app:layout_constraintBottom_toTopOf="@+id/loginEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_vertical"
             app:layout_constraintTop_toBottomOf="@+id/emailField"
             tools:ignore="TextContrastCheck">
 
@@ -105,14 +113,14 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginEmail"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:onClick="@{() -> viewmodel.loginEmail()}"
             android:text="@string/login"
             app:layout_constraintBottom_toTopOf="@+id/loginDividerOr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_vertical"
             app:layout_constraintTop_toBottomOf="@+id/passwordField"
             tools:ignore="TextContrastCheck" />
 
@@ -125,7 +133,7 @@
             android:textAllCaps="false"
             android:textColor="@color/secondary"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_vertical"
             app:layout_constraintTop_toBottomOf="@+id/loginEmail"
             tools:ignore="TextContrastCheck" />
 
@@ -139,7 +147,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintBottom_toBottomOf="@id/loginDividerOr"
             app:layout_constraintEnd_toStartOf="@id/loginDividerOr"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_vertical"
             app:layout_constraintTop_toTopOf="@id/loginDividerOr" />
 
         <View
@@ -159,34 +167,32 @@
             android:id="@+id/loginDividerOr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5sp"
-            android:layout_marginBottom="5dp"
             android:elevation="1dp"
             android:outlineProvider="none"
             android:padding="5dp"
             android:text="@string/or"
             android:textColor="@color/primary_light"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/loginGoogle"
+            app:layout_constraintBottom_toBottomOf="@+id/loginGoogle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_vertical"
             app:layout_constraintTop_toBottomOf="@id/forgotPassword"
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/loginGoogle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:text="@string/google"
             app:layout_constraintBottom_toTopOf="@+id/navigateToRegister"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/guide_vertical" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/navigateToRegister"
             style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/register_question"
             android:textAllCaps="false"
@@ -194,7 +200,21 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/guide_vertical" />
+
+        <ImageView
+            android:id="@+id/bow"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/image_karate_bow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guide_vertical"
+            app:layout_constraintHeight_max="350dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guide_top"
+            app:layout_constraintWidth_max="350dp"
+            app:srcCompat="@drawable/bow"
+            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

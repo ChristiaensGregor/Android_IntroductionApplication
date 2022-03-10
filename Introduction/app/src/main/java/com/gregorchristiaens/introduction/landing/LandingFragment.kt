@@ -31,10 +31,8 @@ class LandingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.loginEmail?.setOnClickListener {
-            findNavController().navigate(R.id.action_landingFragment_to_loginFragment)
-        }
+        //TODO navigate to login if not logged in , navigate past login if logged in user found
+        findNavController().navigate(R.id.action_landingFragment_to_loginFragment)
     }
 
     override fun onDestroyView() {
