@@ -26,7 +26,6 @@ class LandingViewModel(userRepository: UserRepository) : ViewModel() {
     val user: LiveData<User>
         get() = _user
 
-
     init {
         val fu = auth.currentUser
         if (fu != null) {
