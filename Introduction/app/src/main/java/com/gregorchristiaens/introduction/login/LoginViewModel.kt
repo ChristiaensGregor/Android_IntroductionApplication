@@ -70,7 +70,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
                         Log.d(logKey, "signInWithEmailAndPassword:success")
                         val user = auth.currentUser
                         if (user != null) {
-                            userRepository.getUserData(user)
+                            userRepository.setUserData(user)
                         }
                         _navigateToProfile.value = true
                     } else {

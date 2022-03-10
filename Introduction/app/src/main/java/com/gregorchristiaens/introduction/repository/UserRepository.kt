@@ -1,17 +1,29 @@
 package com.gregorchristiaens.introduction.repository
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseUser
 import com.gregorchristiaens.introduction.domain.User
 
 class UserRepository {
-    private var user = User()
+
+    val logKey = "UserRepository"
+
+    private var _user = MutableLiveData<User>(User())
+    val user: LiveData<User>
+        get() = _user
 
 
-    fun getUserData(firebaseUser: FirebaseUser): User {
+    fun setUserData(firebaseUser: FirebaseUser) {
         //TODO call database and get userData
-        firebaseUser.email?.let { user.email = it }
-        firebaseUser.displayName?.let { user.displayName = it }
-        return user
+        Log.d(logKey, "Setting the email and password values of user")
+        firebaseUser.email?.let {
+            _user.value?.email = it
+        }
+        firebaseUser.displayName?.let {
+            _user.value?.displayName = it
+        }
     }
 
     companion object {

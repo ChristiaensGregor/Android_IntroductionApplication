@@ -12,5 +12,8 @@
     <string name="register_question">Don\'t have an account? Register</string>
     <!-- Profile Fragment -->
     <string name="logout">Logout</string>
+    <string name="register">Register</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="display_name">Display name</string>
     <!-- Temp TODO Remove temp strings -->
 </resources>

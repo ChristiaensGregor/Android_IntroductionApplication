@@ -1,5 +1,6 @@
 package com.gregorchristiaens.introduction.landing
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,8 @@ import com.gregorchristiaens.introduction.domain.User
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 class LandingViewModel(userRepository: UserRepository) : ViewModel() {
+    val logKey = "LandingViewModel"
+
     /**
      * An instance of FirebaseAuth is acquired using [FirebaseAuth.getInstance]
      * This ensures ensures we use a single instance of [FirebaseAuth] throughout the application.
@@ -27,7 +30,9 @@ class LandingViewModel(userRepository: UserRepository) : ViewModel() {
     init {
         val fu = auth.currentUser
         if (fu != null) {
-            _user.value = userRepository.getUserData(fu)
+            Log.d(logKey, "Found a logged in user")
+            userRepository.setUserData(fu)
+            _user.value = userRepository.user.value
             _firebaseUser.value = fu!!
         }
     }

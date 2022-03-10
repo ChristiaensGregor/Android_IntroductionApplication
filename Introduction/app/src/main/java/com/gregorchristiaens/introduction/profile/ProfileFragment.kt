@@ -1,6 +1,7 @@
 package com.gregorchristiaens.introduction.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.gregorchristiaens.introduction.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
+    private val logKey = "ProfileFragment"
 
     private var _binding: FragmentProfileBinding? = null
 
@@ -33,6 +35,10 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.user.observe(viewLifecycleOwner) {
+            Log.d(logKey, it.displayName)
+            Log.d(logKey, it.email)
+        }
         viewModel.navigateToLanding.observe(viewLifecycleOwner) {
             if (it) Navigation.findNavController(binding.root)
                 .navigate(R.id.action_profileFragment_to_landingFragment)

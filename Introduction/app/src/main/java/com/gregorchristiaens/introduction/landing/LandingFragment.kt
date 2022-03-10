@@ -23,7 +23,6 @@ class LandingFragment : Fragment() {
      */
     private val binding get() = _binding!!
 
-    private lateinit var userRepository: UserRepository
     private lateinit var viewModel: LandingViewModel
     private lateinit var viewModelFactory: LandingViewModelFactory
 
@@ -32,8 +31,7 @@ class LandingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLandingBinding.inflate(inflater, container, false)
-        userRepository = UserRepository.getInstance()
-        viewModelFactory = LandingViewModelFactory(userRepository)
+        viewModelFactory = LandingViewModelFactory(UserRepository.getInstance())
         viewModel = ViewModelProvider(this, viewModelFactory).get(LandingViewModel::class.java)
         return binding.root
     }

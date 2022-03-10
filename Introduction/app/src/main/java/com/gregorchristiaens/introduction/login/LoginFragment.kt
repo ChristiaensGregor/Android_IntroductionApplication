@@ -58,8 +58,7 @@ class LoginFragment : Fragment() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-        val userRepository = UserRepository.getInstance()
-        viewModelFactory = LoginViewModelFactory(userRepository)
+        viewModelFactory = LoginViewModelFactory(UserRepository.getInstance())
         viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
         binding.viewmodel = viewModel
 
@@ -90,6 +89,10 @@ class LoginFragment : Fragment() {
         }
         binding.loginGoogle.setOnClickListener {
             signInGoogle()
+        }
+        binding.navigateToRegister.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
