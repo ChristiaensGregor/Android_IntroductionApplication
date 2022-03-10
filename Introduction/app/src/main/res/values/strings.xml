@@ -1,28 +1,16 @@
 <resources>
     <string name="app_name">Introduction</string>
-    <string name="serverClientId">293071422365-29lid66kgot2urhccq51vbjjv837fh9n.apps.googleusercontent.com</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="landing_fragment_label">Landing</string>
-    <string name="login_fragment_label">Login</string>
     <!-- Landing Fragment -->
     <string name="logo_description">Image Personal Logo, Initials, Desk, Chair, Laptop</string>
-    <string name="login_email_info">Login with email and password</string>
-    <string name="or">OR</string>
-    <string name="welcome_back">Welcome back</string>
     <!-- Login Fragment -->
-    <string name="image_karate_bow">Image karate bow</string>
-    <string name="email_and_password">email and password</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
-    <string name="forgot_your_password">Forgot your password?</string>
     <string name="login">Login</string>
-    <!-- Alternative Login Fragment-->
-    <string name="or_login_in_with">Or login in with</string>
-    <string name="google">Google</string>
-    <string name="github">GitHub</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="or">OR</string>
+    <string name="image_karate_bow">Image karate bow</string>
     <string name="register_question">Don\'t have an account? Register</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Profile Fragment -->
     <string name="logout">Logout</string>
-    <!-- Temp TODO Remove temp strings-->
+    <!-- Temp TODO Remove temp strings -->
 </resources>

@@ -58,7 +58,7 @@ class LoginFragment : Fragment() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-        val userRepository = UserRepository()
+        val userRepository = UserRepository.getInstance()
         viewModelFactory = LoginViewModelFactory(userRepository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
         binding.viewmodel = viewModel

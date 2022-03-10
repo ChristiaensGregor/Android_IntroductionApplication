@@ -14,7 +14,7 @@ import com.gregorchristiaens.introduction.repository.UserRepository
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val LOGKEY = "LoginViewModel"
+    private val logKey = "LoginViewModel"
 
     /**
      * [email] stores value entered in the email EditText.
@@ -63,19 +63,19 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
         val email = email.value
         val password = password.value
         if (validateEmail(email) && validatePassword(password) && !email.isNullOrEmpty() && !password.isNullOrEmpty()) {
-            Log.d(LOGKEY, "Starting Login Email process")
+            Log.d(logKey, "Starting Login Email process")
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d(LOGKEY, "signInWithEmailAndPassword:success")
+                        Log.d(logKey, "signInWithEmailAndPassword:success")
                         val user = auth.currentUser
                         if (user != null) {
-                            user.email?.let { userRepository.addUser(it) }
+                            userRepository.getUserData(user)
                         }
                         _navigateToProfile.value = true
                     } else {
                         val message = task.exception!!.message.toString()
-                        Log.d(LOGKEY, message)
+                        Log.d(logKey, message)
                         if (message.contains("password")) _passwordError.value = message
                         else _emailError.value = message
                         //TODO this is in theory obsolete
@@ -151,31 +151,31 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-                Log.d(LOGKEY, "firebaseAuthWithGoogle:" + account.id)
+                Log.d(logKey, "firebaseAuthWithGoogle:" + account.id)
                 val credential = GoogleAuthProvider.getCredential(account.idToken, null)
                 auth.signInWithCredential(credential)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+                    .addOnCompleteListener { signInAttempt ->
+                        if (signInAttempt.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(LOGKEY, "signInWithCredential:success")
+                            Log.d(logKey, "signInWithCredential:success")
                             val user = auth.currentUser
                             if (user != null) {
-                                Log.d(LOGKEY, "Logged in user: ${user.email}")
+                                Log.d(logKey, "Logged in user: ${user.email}")
                             }
                             _navigateToProfile.value = true
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(LOGKEY, "signInWithCredential:failure", task.exception)
+                            Log.w(logKey, "signInWithCredential:failure", signInAttempt.exception)
                             //Update ui no user
                         }
                     }
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
-                Log.w(LOGKEY, "Google sign in failed", e)
+                Log.w(logKey, "Google sign in failed", e)
                 _loginError.value = "Google sign in failed, please try again"
             }
         } else {
-            Log.w(LOGKEY, exception)
+            Log.w(logKey, exception)
             _loginError.value =
                 "Could not connect to Google Play Services"
         }

@@ -1,11 +1,6 @@
 package com.gregorchristiaens.introduction.domain
 
-class User() {
-
+class User {
     lateinit var email: String
-
-    fun setMail(value: String) {
-        email = value
-    }
-
+    lateinit var displayName: String
 }
