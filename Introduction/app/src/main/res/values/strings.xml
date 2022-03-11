@@ -15,5 +15,10 @@
     <string name="register">Register</string>
     <string name="repeat_password">Repeat password</string>
     <string name="display_name">Display name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="forgot_info">Don\'t worry, fill out your email below and we will help you out right away!</string>
+    <string name="forgot_header">Forgot your password?</string>
     <!-- Temp TODO Remove temp strings -->
 </resources>

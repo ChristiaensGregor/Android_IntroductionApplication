@@ -26,6 +26,10 @@ class UserRepository {
         }
     }
 
+    fun resetUser() {
+        _user.value = User()
+    }
+
     companion object {
 
         @Volatile

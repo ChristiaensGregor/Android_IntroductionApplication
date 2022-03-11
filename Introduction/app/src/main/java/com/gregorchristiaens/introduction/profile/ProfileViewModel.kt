@@ -27,6 +27,8 @@ class ProfileViewModel : ViewModel() {
 
     fun logout() {
         auth.signOut()
+        val userRepository = UserRepository.getInstance()
+        userRepository.resetUser()
         _navigateToLanding.value = true
     }
 }
