@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Material Theme-->
-    <!-- BLACK AND WHITE -->
-    <color name="text_on_primary">#ffffff</color>
-    <color name="text_on_secondary">#000000</color>
     <!--
     -->
     <color name="black">#FF000000</color>
     <!--
-    TODO look at preferred white
     -->
     <color name="white">#F5F5F5</color>
     <!-- PRIMARY -->

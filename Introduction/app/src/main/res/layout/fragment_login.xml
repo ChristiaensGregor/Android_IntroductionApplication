@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".login.LoginFragment">
 
     <data>
 
@@ -11,12 +12,8 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background"
-        android:padding="15dp"
-        android:tag="login_default"
-        tools:context=".login.LoginFragment">
+        style="@style/parent_container"
+        android:background="@drawable/background">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_top"
@@ -25,16 +22,11 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.2" />
 
-        <ProgressBar
-            android:id="@+id/loginProgressBar"
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="5dp"
-            android:visibility="gone"
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressbar"
+            style="@style/progress_spinner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -51,13 +43,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
+            style="@style/input_email"
             android:hint="@string/email_address"
-            android:inputType="textEmailAddress"
-            app:boxBackgroundColor="@color/text_on_primary"
+            app:boxBackgroundColor="@color/white"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/passwordField"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,13 +65,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="password"
+            style="@style/input_password"
             android:hint="@string/password"
-            android:inputType="textPassword"
-            app:boxBackgroundColor="@color/text_on_primary"
+            app:boxBackgroundColor="@color/white"
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/loginEmail"
@@ -104,9 +88,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginEmail"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/button_primary"
             android:onClick="@{() -> viewmodel.loginEmail()}"
             android:text="@string/login"
             app:layout_constraintBottom_toTopOf="@+id/loginDividerOr"
@@ -118,12 +100,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/forgotPassword"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/button_text_secondary"
             android:text="@string/forgot_your_password"
-            android:textAllCaps="false"
-            android:textColor="@color/secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginEmail"
@@ -184,13 +162,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/navigateToRegister"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/button_text_secondary"
             android:text="@string/register_question"
-            android:textAllCaps="false"
-            android:textColor="@color/secondary"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

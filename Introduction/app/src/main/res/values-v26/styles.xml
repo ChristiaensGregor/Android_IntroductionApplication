@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- autofillHints not available before api level 26 -->
+    <style name="input_name" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autofillHints">name</item>
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
+    <style name="input_password" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autofillHints">password</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="input_email" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autofillHints">emailAddress</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+
+</resources>

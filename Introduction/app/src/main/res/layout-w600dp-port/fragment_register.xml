@@ -13,8 +13,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/parent_container"
         android:padding="50dp">
 
         <androidx.constraintlayout.widget.Guideline
@@ -26,13 +25,9 @@
             app:layout_constraintGuide_percent="0.15"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progressbar"
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="5dp"
-            android:visibility="gone"
+            style="@style/progress_spinner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +59,8 @@
 
         <TextView
             android:id="@+id/header"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
+            style="@style/header"
             android:text="@string/register"
-            android:textColor="@color/primary"
-            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/welcome"
             app:layout_constraintEnd_toStartOf="@+id/bow"
             app:layout_constraintHorizontal_bias="0.5"
@@ -79,12 +71,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/displayNameField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:autofillHints="name"
+            style="@style/input_name"
             android:hint="@string/display_name"
-            android:inputType="textPersonName"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/emailField"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,14 +92,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/input_email"
             android:layout_marginTop="15dp"
-            android:autofillHints="emailAddress"
-            android:ems="10"
             android:hint="@string/email_address"
-            android:inputType="textEmailAddress"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/passwordField"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,14 +113,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/input_password"
             android:layout_marginTop="15dp"
-            android:autofillHints="password"
-            android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPassword"
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/repeatPasswordField"
@@ -158,14 +136,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/repeatPasswordField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/input_password"
             android:layout_marginTop="15dp"
-            android:autofillHints="password"
-            android:ems="10"
             android:hint="@string/repeat_password"
-            android:inputType="textPassword"
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/register"
@@ -187,9 +160,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/register"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/button_primary"
             android:layout_marginTop="15dp"
             android:onClick="@{()-> viewmodel.register()}"
             android:text="@string/register"
@@ -202,12 +173,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/button_text_secondary"
             android:layout_marginTop="10dp"
             android:text="@string/login"
-            android:textColor="@color/secondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

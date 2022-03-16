@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="parent_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="progress_spinner" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:indeterminate">true</item>
+        <item name="trackThickness">7dp</item>
+    </style>
+
+    <style name="button_primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="button_text_secondary" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <style name="input_name" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
+    <style name="input_email" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="input_password" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="header">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="sub_header">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>
