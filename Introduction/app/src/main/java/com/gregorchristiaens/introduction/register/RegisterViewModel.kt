@@ -8,11 +8,12 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.gregorchristiaens.introduction.domain.User
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val logKey = "RegisterViewModel"
+    private val logKey = "IntroductionApp.KEY.RegisterViewModel"
 
     var displayName = MutableLiveData<String>()
 
@@ -74,7 +75,8 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
             user.updateProfile(profileUpdates).addOnCompleteListener { update ->
                 if (update.isSuccessful) {
                     //After registering the users data is passed to the UserRepository
-                    userRepository.setUserData(user)
+                    val u = User(user.uid, user.email, user.displayName)
+                    userRepository.addUser(u)
                     _navigateToProfile.value = true
                 }
             }

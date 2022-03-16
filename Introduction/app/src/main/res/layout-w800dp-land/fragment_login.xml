@@ -208,12 +208,22 @@
             android:contentDescription="@string/image_karate_bow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guide_vertical"
-            app:layout_constraintHeight_max="350dp"
+            app:layout_constraintHeight_max="400dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guide_top"
             app:layout_constraintWidth_max="350dp"
-            app:srcCompat="@drawable/bow"
+            app:srcCompat="@drawable/logo_group"
             tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gr_gor_christiaens"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/bow"
+            app:layout_constraintEnd_toStartOf="@id/guide_vertical"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

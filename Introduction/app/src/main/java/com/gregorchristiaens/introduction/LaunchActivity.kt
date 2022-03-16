@@ -16,13 +16,11 @@ class LaunchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLauncherBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //TODO Due to a bug the findNavController breaks when working with FragmentContainer.
-        //TODO Check if this has been fixed otherwise keep this workaround.
+        //TODO Due to a bug the findNavController breaks when working with FragmentContainer.Check if this has been fixed otherwise keep this workaround.
         //val navController = findNavController(R.id.nav_host_fragment_content_launcher)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_launcher) as NavHostFragment
-        val navController = navHostFragment.navController
+        navHostFragment.navController
     }
 
 }

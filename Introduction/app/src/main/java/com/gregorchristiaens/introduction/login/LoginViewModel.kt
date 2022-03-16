@@ -11,11 +11,10 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.gregorchristiaens.introduction.repository.UserRepository
-import kotlin.math.log
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val logKey = "LoginViewModel"
+    private val logKey = "IntroductionApp.KEY.LoginViewModel"
 
     /**
      * [email] stores value entered in the email EditText.
@@ -56,7 +55,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
         val user = userRepository.user.value
         if (user != null) {
             try {
-                email.value = user.email!!
+                email.value = user.email
             } catch (e: UninitializedPropertyAccessException) {
                 Log.d(logKey, "The email property has not yet been initialized")
             }
@@ -79,7 +78,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
                         Log.d(logKey, "signInWithEmailAndPassword:success")
                         val user = auth.currentUser
                         if (user != null) {
-                            userRepository.setUserData(user)
+                            userRepository.getUser(user.uid)
                         }
                         _navigateToProfile.value = true
                     } else {

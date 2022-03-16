@@ -2,6 +2,7 @@ package com.gregorchristiaens.introduction.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,8 @@ import com.gregorchristiaens.introduction.repository.UserRepository
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class LoginFragment : Fragment() {
+
+    private val logKey = "IntroductionApp.KEY.LoginFragment"
 
     private var _binding: FragmentLoginBinding? = null
 
@@ -119,6 +122,7 @@ class LoginFragment : Fragment() {
 
     private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
+        Log.d(logKey, "Starting google signIn intent")
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 

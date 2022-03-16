@@ -1,6 +1,7 @@
 package com.gregorchristiaens.introduction.register
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +9,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.gregorchristiaens.introduction.databinding.FragmentRegisterBinding
 import com.gregorchristiaens.introduction.repository.UserRepository
 import com.gregorchristiaens.introduction.R
+import com.gregorchristiaens.introduction.databinding.FragmentRegisterBinding
 
 
 class RegisterFragment : Fragment() {
 
-    private val logKey = "RegisterFragment"
+    private val logKey = "IntroductionApp.KEY.RegisterFragment"
 
     private var _binding: FragmentRegisterBinding? = null
 
@@ -70,6 +71,7 @@ class RegisterFragment : Fragment() {
         }
         viewModel.navigateToProfile.observe(viewLifecycleOwner) {
             if (it) {
+                Log.d(logKey, "Navigating to Profile")
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_registerFragment_to_profileFragment)
             }

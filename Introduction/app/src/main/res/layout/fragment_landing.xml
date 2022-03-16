@@ -8,7 +8,9 @@
     android:background="@drawable/background"
     android:padding="15dp"
     android:tag="landing_default"
-    tools:context=".landing.LandingFragment">
+    tools:context=".landing.LandingFragment"
+    tools:ignore="Overdraw"
+    tools:keep="@layout/fragment_landing">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

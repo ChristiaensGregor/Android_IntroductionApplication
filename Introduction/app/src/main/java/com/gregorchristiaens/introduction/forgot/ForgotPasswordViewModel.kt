@@ -2,8 +2,6 @@ package com.gregorchristiaens.introduction.forgot
 
 import android.util.Log
 import android.util.Patterns
-import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +10,7 @@ import com.gregorchristiaens.introduction.repository.UserRepository
 
 class ForgotPasswordViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val logKey = "ForgotPasswordViewModel"
+    private val logKey = "IntroductionApp.KEY.ForgotPasswordViewModel"
 
     var email = MutableLiveData<String>()
 
@@ -55,7 +53,7 @@ class ForgotPasswordViewModel(private val userRepository: UserRepository) : View
             _emailError.value = ""
             return true
         }
-        _emailError.value = "Please enter a valid email adress"
+        _emailError.value = "Please enter a valid email address"
         return false
     }
 

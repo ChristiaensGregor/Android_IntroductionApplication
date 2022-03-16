@@ -1,19 +1,19 @@
 package com.gregorchristiaens.introduction.profile
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.gregorchristiaens.introduction.domain.User
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 class ProfileViewModel : ViewModel() {
 
-    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val logKey = "IntroductionApp.KEY.ProfileViewModel"
 
-    private val _user = MutableLiveData<User>()
-    val user: LiveData<User>
-        get() = _user
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val database = UserRepository.getInstance()
+    val user = database.user
 
     private val _navigateToLanding = MutableLiveData<Boolean>()
     val navigateToLanding: LiveData<Boolean>
@@ -21,11 +21,10 @@ class ProfileViewModel : ViewModel() {
 
     init {
         _navigateToLanding.value = false
-        val userRepository = UserRepository.getInstance()
-        _user.value = userRepository.user.value
     }
 
     fun logout() {
+        Log.d(logKey, "Logging out user")
         auth.signOut()
         val userRepository = UserRepository.getInstance()
         userRepository.resetUser()

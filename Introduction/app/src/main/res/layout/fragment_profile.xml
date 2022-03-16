@@ -34,6 +34,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/displayName" />
 
+        <TextView
+            android:id="@+id/joinDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.user.joinDate}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/logout"
             android:layout_width="match_parent"

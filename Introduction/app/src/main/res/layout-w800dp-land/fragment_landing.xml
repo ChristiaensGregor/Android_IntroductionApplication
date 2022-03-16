@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_tablet"
     android:padding="15dp"
-    tools:context=".landing.LandingFragment">
+    tools:context=".landing.LandingFragment"
+    tools:keep="@layout/fragment_landing">
 
 
     <androidx.constraintlayout.widget.Guideline

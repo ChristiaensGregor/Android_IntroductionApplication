@@ -1,6 +1,7 @@
 package com.gregorchristiaens.introduction.forgot
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import com.gregorchristiaens.introduction.databinding.FragmentForgotPasswordBind
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 class ForgotPasswordFragment : Fragment() {
+
+    private val logKey = "IntroductionApp.KEY.ForgotPasswordFragment"
 
     private var _binding: FragmentForgotPasswordBinding? = null
 
@@ -33,7 +36,7 @@ class ForgotPasswordFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
         binding.viewmodel = viewModel
         return binding.root
@@ -47,6 +50,7 @@ class ForgotPasswordFragment : Fragment() {
         }
         viewModel.resetSuccess.observe(viewLifecycleOwner) {
             if (it) {
+                Log.d(logKey, "Reset Successful, navigating to Login")
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
             }
