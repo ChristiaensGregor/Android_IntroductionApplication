@@ -13,7 +13,7 @@ import com.gregorchristiaens.introduction.repository.UserRepository
 
 class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val logKey = "IntroductionApp.KEY.RegisterViewModel"
+    private val logKey = "IntroductionApp.LOGKEY.RegisterViewModel"
 
     var displayName = MutableLiveData<String>()
 
@@ -51,7 +51,7 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val user: FirebaseUser = task.result!!.user!!
-                        Log.d(logKey, "You are registered successfully")
+                        Log.d("$logKey.register", "You are registered successfully")
                         updateProfile(user)
                     } else {
                         _registerError.value = task.exception?.message.toString()

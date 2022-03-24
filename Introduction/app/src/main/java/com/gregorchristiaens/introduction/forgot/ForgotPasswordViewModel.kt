@@ -10,7 +10,7 @@ import com.gregorchristiaens.introduction.repository.UserRepository
 
 class ForgotPasswordViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val logKey = "IntroductionApp.KEY.ForgotPasswordViewModel"
+    private val logKey = "IntroductionApp.LOGKEY.ForgotPasswordViewModel"
 
     var email = MutableLiveData<String>()
 
@@ -30,7 +30,7 @@ class ForgotPasswordViewModel(private val userRepository: UserRepository) : View
         if (validateEmail(email) && email != null) {
             auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Log.d(logKey, "Reset Mail sent")
+                    Log.d("$logKey.resetPassword", "Reset Mail sent")
                     userRepository.user.value?.email = email
                     _resetSuccess.value = true
                 } else {
@@ -49,7 +49,6 @@ class ForgotPasswordViewModel(private val userRepository: UserRepository) : View
         if (!value.isNullOrEmpty() && value.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(value)
                 .matches()
         ) {
-            Log.d(logKey, "Email validation passed")
             _emailError.value = ""
             return true
         }

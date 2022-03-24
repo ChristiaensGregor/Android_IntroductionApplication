@@ -13,8 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class UserRepository {
-
-    private val logKey = "IntroductionApp.KEY.UserRepository"
+    private val logKey = "IntroductionApp.LOGKEY.UserRepository"
 
     private lateinit var database: DatabaseReference
 
@@ -33,11 +32,10 @@ class UserRepository {
         val date = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.FRENCH).format(Date())
         user.joinDate = date
         database.child(user.id).setValue(user).addOnCompleteListener {
-            Log.d(logKey, "Saved users data in firebase database")
-            Log.d(logKey, "Saved User: $user")
+            Log.d("$logKey.addUser", "Saved users data in firebase database")
         }
             .addOnFailureListener {
-                Log.d(logKey, "Failed to save the users data in firebase database")
+                Log.d("$logKey.addUser", "Failed to save the users data in firebase database")
             }
         _user.value = user
     }
@@ -49,9 +47,9 @@ class UserRepository {
     @SuppressLint("NullSafeMutableLiveData")
     fun getUser(id: String) {
         _user.value?.id = id
-        Log.d(logKey, "Getting userData from Database with id: $id")
+        Log.d("$logKey.getUser", "Getting user from Database")
         database.child(id).get().addOnSuccessListener {
-            Log.i(logKey, "Got value ${it.value}")
+            Log.i("$logKey.getUser", "Got User ${it.value}")
             try {
                 val user = it.getValue(User::class.java)
                 if (user == null) {
@@ -63,7 +61,7 @@ class UserRepository {
                 ex.message?.let { it1 -> Log.d(logKey, it1) }
             }
         }.addOnFailureListener {
-            Log.e(logKey, "Error getting data", it)
+            Log.e("$logKey.getUser", "Error getting data", it)
         }
     }
 

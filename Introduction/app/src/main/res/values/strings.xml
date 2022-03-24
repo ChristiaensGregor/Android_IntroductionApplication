@@ -10,16 +10,34 @@
     <string name="or">OR</string>
     <string name="image_karate_bow">Image karate bow</string>
     <string name="register_question">Don\'t have an account? Register</string>
-    <!-- Profile Fragment -->
-    <string name="logout">Logout</string>
-    <string name="register">Register</string>
-    <string name="repeat_password">Repeat password</string>
-    <string name="display_name">Display name</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="reset_password">Reset Password</string>
-    <string name="forgot_info">Don\'t worry, fill out your email below and we will help you out right away!</string>
-    <string name="forgot_header">Forgot your password?</string>
+    <!-- Login Fragment Tablet -->
     <string name="gr_gor_christiaens">Grégor Christiaens</string>
+    <string name="multi_logo_description">3 logo\'s. One representing beekeeping, one representing karate and one representing IT</string>
+    <!-- Register Fragment -->
     <string name="welcome">Welcome</string>
+    <string name="display_name">Display name</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="register">Register</string>
+    <!-- Forgot Password Fragment -->
+    <string name="forgot_header">Forgot your password?</string>
+    <string name="forgot_info">Don\'t worry, fill out your email below and we will help you out right away!</string>
+    <string name="reset_password">Reset Password</string>
+    <!-- Menu Fragment -->
+    <string name="codefever">CodeFever</string>
+    <string name="karate">Karate</string>
+    <string name="beekeeping">Beekeeping</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <!-- Profile Fragment -->
+    <!-- Lessons Fragment -->
+    <string name="default_lesson_title">Wingene Ippan Karate</string>
+    <string name="default_lesson_date">25/03/2022</string>
+    <string name="default_lesson_image_description">A karate gi or kimono</string>
+    <string name="default_lesson_image2_description">The second image depicting required gear, this could be a weapon or boxing gloves.</string>
+    <string name="default_lesson_image3_description">Third image depicting required gear, this will usually display shin guards</string>
+    <!-- Lesson Fragment -->
+    <string name="participate">Participate</string>
+    <string name="opt_out">Opt Out</string>
     <!-- Temp TODO Remove temp strings -->
+
 </resources>

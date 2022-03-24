@@ -14,7 +14,7 @@
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w600dp/fragment_landing.xml" value="0.18" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w700dp-land/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w800dp-land/fragment_landing.xml" value="0.33" />
-        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w800dp-land/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w800dp-land/fragment_login.xml" value="0.12" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout-w800dp-land/fragment_register.xml" value="0.18" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/activity_launcher.xml" value="0.1" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
@@ -24,9 +24,14 @@
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_alternative_login.xml" value="0.13" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_forgot_password.xml" value="0.2" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_landing.xml" value="0.18" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_lesson.xml" value="0.264" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_lesson_card.xml" value="0.15433946130825138" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_lessons.xml" value="0.33" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_login.xml" value="0.33" />
-        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_menu.xml" value="0.1" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_profile.xml" value="0.152" />
         <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/fragment_register.xml" value="0.33" />
+        <entry key="..\:/Users/GregorChristiaens/Development/Android/IntroductionApplicationRepo/Introduction/app/src/main/res/layout/lesson_card.xml" value="0.33" />
       </map>
     </option>
   </component>

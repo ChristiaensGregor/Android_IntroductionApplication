@@ -180,10 +180,10 @@
             app:layout_constraintStart_toStartOf="@id/guide_vertical" />
 
         <ImageView
-            android:id="@+id/bow"
+            android:id="@+id/multi_logo"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="@string/image_karate_bow"
+            android:contentDescription="@string/multi_logo_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guide_vertical"
             app:layout_constraintHeight_max="400dp"
@@ -198,8 +198,8 @@
             android:layout_height="wrap_content"
             android:text="@string/gr_gor_christiaens"
             android:textColor="@color/primary"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@id/bow"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/multi_logo"
             app:layout_constraintEnd_toStartOf="@id/guide_vertical"
             app:layout_constraintStart_toStartOf="parent" />
 

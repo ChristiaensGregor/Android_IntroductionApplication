@@ -10,11 +10,12 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.gregorchristiaens.introduction.domain.User
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val logKey = "IntroductionApp.KEY.LoginViewModel"
+    private val logKey = "IntroductionApp.LOGKEY.LoginViewModel"
 
     /**
      * [email] stores value entered in the email EditText.
@@ -57,7 +58,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
             try {
                 email.value = user.email
             } catch (e: UninitializedPropertyAccessException) {
-                Log.d(logKey, "The email property has not yet been initialized")
+                Log.d("$logKey.init", "The email property has not yet been initialized")
             }
         }
     }
@@ -71,19 +72,16 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
         val email = email.value
         val password = password.value
         if (validateEmail(email) && validatePassword(password) && !email.isNullOrEmpty() && !password.isNullOrEmpty()) {
-            Log.d(logKey, "Starting Login Email process")
+            Log.d("$logKey.loginEmail", "Starting Login Email process")
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d(logKey, "signInWithEmailAndPassword:success")
+                        Log.d("$logKey.loginEmail", "signInWithEmailAndPassword:success")
                         val user = auth.currentUser
-                        if (user != null) {
-                            userRepository.getUser(user.uid)
-                        }
                         _navigateToProfile.value = true
                     } else {
                         val message = task.exception!!.message.toString()
-                        Log.d(logKey, message)
+                        Log.d("$logKey.loginEmail", message)
                         if (message.contains("password")) _passwordError.value = message
                         else _emailError.value = message
                         //TODO this is in theory obsolete
@@ -159,21 +157,33 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-                Log.d(logKey, "firebaseAuthWithGoogle:" + account.id)
+                Log.d("$logKey.loginGoogle", "firebaseAuthWithGoogle:" + account.id)
                 val credential = GoogleAuthProvider.getCredential(account.idToken, null)
                 auth.signInWithCredential(credential)
                     .addOnCompleteListener { signInAttempt ->
                         if (signInAttempt.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(logKey, "signInWithCredential:success")
+                            Log.d("$logKey.loginGoogle", "signInWithCredential:success")
                             val user = auth.currentUser
                             if (user != null) {
-                                Log.d(logKey, "Logged in user: ${user.email}")
+                                if (userRepository.user.value == null) {
+                                    userRepository.addUser(
+                                        User(
+                                            user.uid,
+                                            user.email,
+                                            user.displayName
+                                        )
+                                    )
+                                }
                             }
                             _navigateToProfile.value = true
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(logKey, "signInWithCredential:failure", signInAttempt.exception)
+                            Log.w(
+                                "$logKey.loginGoogle",
+                                "signInWithCredential:failure",
+                                signInAttempt.exception
+                            )
                             //Update ui no user
                         }
                     }

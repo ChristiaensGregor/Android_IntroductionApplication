@@ -23,7 +23,7 @@ import com.gregorchristiaens.introduction.repository.UserRepository
  */
 class LoginFragment : Fragment() {
 
-    private val logKey = "IntroductionApp.KEY.LoginFragment"
+    private val logKey = "IntroductionApp.LOGKEY.LoginFragment"
 
     private var _binding: FragmentLoginBinding? = null
 
@@ -78,7 +78,7 @@ class LoginFragment : Fragment() {
         viewModel.navigateToProfile.observe(viewLifecycleOwner) {
             if (it) {
                 Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_loginFragment_to_profileFragment)
+                    .navigate(R.id.action_loginFragment_to_menuFragment)
             }
         }
         viewModel.emailError.observe(viewLifecycleOwner) {
@@ -122,7 +122,7 @@ class LoginFragment : Fragment() {
 
     private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
-        Log.d(logKey, "Starting google signIn intent")
+        Log.d("$logKey.signInGoogle", "Starting google signIn intent")
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
