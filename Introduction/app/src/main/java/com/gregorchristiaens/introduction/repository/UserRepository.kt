@@ -4,29 +4,21 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import com.gregorchristiaens.introduction.domain.User
 import java.lang.IllegalArgumentException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
-class UserRepository {
+class UserRepository : Repository() {
+
     private val logKey = "IntroductionApp.LOGKEY.UserRepository"
 
-    private lateinit var database: DatabaseReference
+    override val childPaths: ArrayList<String> = arrayListOf("users")
 
     private var _user = MutableLiveData(User())
     val user: LiveData<User>
         get() = _user
-
-    fun getDatabaseInstance() {
-        database =
-            Firebase.database("https://introduction-17d67-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
-                "users"
-            )
-    }
 
     fun addUser(user: User) {
         val date = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.FRENCH).format(Date())

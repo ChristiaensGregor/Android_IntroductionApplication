@@ -48,4 +48,14 @@ class Lesson() : Serializable {
             null
         }
     }
+
+    fun convertToDatabaseLesson(): DatabaseLesson {
+        return DatabaseLesson(
+            id,
+            location,
+            type.toString(),
+            dateString,
+            users
+        )
+    }
 }

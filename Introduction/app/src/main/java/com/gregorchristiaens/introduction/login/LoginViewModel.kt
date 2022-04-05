@@ -2,7 +2,6 @@ package com.gregorchristiaens.introduction.login
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -12,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.gregorchristiaens.introduction.domain.User
 import com.gregorchristiaens.introduction.repository.UserRepository
+
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
@@ -197,6 +197,6 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
             _loginError.value =
                 "Could not connect to Google Play Services"
         }
-
     }
+
 }

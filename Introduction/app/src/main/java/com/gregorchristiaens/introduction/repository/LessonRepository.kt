@@ -6,26 +6,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import com.gregorchristiaens.introduction.domain.DatabaseLesson
 import com.gregorchristiaens.introduction.domain.Lesson
-import com.gregorchristiaens.introduction.domain.LessonTypes
 import java.lang.IllegalArgumentException
 import java.lang.RuntimeException
 import java.lang.reflect.InvocationTargetException
 import kotlin.collections.ArrayList
 
-class LessonRepository {
+class LessonRepository() : Repository() {
 
     private val logKey = "IntroductionApp.LOGKEY.LessonRepository"
 
-    private var database: DatabaseReference =
-        Firebase.database("https://introduction-17d67-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
-            "lessons"
-        )
+    override val childPaths: ArrayList<String> = arrayListOf("clubs")
 
     private var _lessons = MutableLiveData<List<Lesson>>()
     val lessons: LiveData<List<Lesson>>
@@ -33,6 +27,8 @@ class LessonRepository {
 
     private var _lesson = MutableLiveData<Lesson>()
     val lesson: LiveData<Lesson> get() = _lesson
+
+    var karateClubId: String = ""
 
     /**
      * addLesson
@@ -42,7 +38,8 @@ class LessonRepository {
      */
     private fun addLesson(lesson: Lesson) {
         try {
-            database.child(lesson.id).setValue(convertToDatabaseLesson(lesson))
+            database.child(karateClubId).child("lessons").child(lesson.id)
+                .setValue(lesson.convertToDatabaseLesson())
                 .addOnCompleteListener {
                     Log.d("$logKey.addLesson", "Saved Lesson: ${lesson.name}")
                 }
@@ -62,7 +59,7 @@ class LessonRepository {
      * @throws IllegalArgumentException if the conversion to [DatabaseLesson] fails.
      */
     fun getLessonsOnce() {
-        database.get().addOnSuccessListener {
+        database.child(karateClubId).child("lessons").get().addOnSuccessListener {
             Log.d("$logKey.getLessons", "Got value ${it.value}")
             try {
                 val list = ArrayList<Lesson>()
@@ -71,7 +68,7 @@ class LessonRepository {
                     if (l == null) {
                         throw IllegalArgumentException("Could not convert the database object to the local Lesson class")
                     } else {
-                        list.add(convertToLocalLesson(l))
+                        list.add(l.convertToLesson())
                     }
                 }
                 _lessons.value = list
@@ -93,34 +90,35 @@ class LessonRepository {
      * Requests lessons from [database] (child:"lessons").
      * Listens to onDataChange to update the lessons once a change occurs in the realtime database.
      * Converts the gotten data to [DatabaseLesson] first.
-     * The converted DatabaseLessons are then converted with [convertToLocalLesson] to [Lesson] for use in the application.
+     * The converted DatabaseLessons are then converted with [DatabaseLesson.convertToLesson] to [Lesson] for use in the application.
      * Uses [sortLessons] to sort the acquired lessons.
      *
      * @throws IllegalArgumentException if the conversion to [DatabaseLesson] fails.
      */
     fun getLessons() {
-        database.addValueEventListener(object : ValueEventListener {
-            @SuppressLint("NullSafeMutableLiveData")
-            override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d("$logKey.getLessons", "Getting lessons from Database")
-                Log.d("$logKey.getLessons", "Got Lessons: ${snapshot.value}")
-                val list = ArrayList<Lesson>()
-                for (lesson in snapshot.children) {
-                    val l = lesson.getValue(DatabaseLesson::class.java)
-                    if (l == null) {
-                        throw IllegalArgumentException("Could not convert the database object to the local Lesson class")
-                    } else {
-                        list.add(convertToLocalLesson(l))
+        database.child(karateClubId).child("lessons")
+            .addValueEventListener(object : ValueEventListener {
+                @SuppressLint("NullSafeMutableLiveData")
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    Log.d("$logKey.getLessons", "Getting lessons from Database")
+                    Log.d("$logKey.getLessons", "Got Lessons: ${snapshot.value}")
+                    val list = ArrayList<Lesson>()
+                    for (value in snapshot.children) {
+                        val databaseLesson = value.getValue(DatabaseLesson::class.java)
+                        if (databaseLesson == null) {
+                            throw IllegalArgumentException("Could not convert the database object to the local Lesson class")
+                        } else {
+                            list.add(databaseLesson.convertToLesson())
+                        }
                     }
+                    _lessons.value = list
+                    sortLessons()
                 }
-                _lessons.value = list
-                sortLessons()
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.w(logKey, "Failed to read value.", error.toException())
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    Log.w(logKey, "Failed to read value.", error.toException())
+                }
+            })
     }
 
     /**
@@ -175,30 +173,24 @@ class LessonRepository {
         }
     }
 
-    private fun convertToDatabaseLesson(lesson: Lesson): DatabaseLesson {
-        return DatabaseLesson(
-            lesson.id,
-            lesson.location,
-            lesson.type.toString(),
-            lesson.dateString,
-            lesson.users
-        )
-    }
 
-    private fun convertToLocalLesson(lesson: DatabaseLesson): Lesson {
-        var type: LessonTypes = LessonTypes.StandardIppan
-        when (lesson.type) {
-            LessonTypes.StandardIppan.name -> type = LessonTypes.StandardIppan
-            LessonTypes.KobudoBo.name -> type = LessonTypes.KobudoBo
-            LessonTypes.KobudoNunchaku.name -> type = LessonTypes.KobudoNunchaku
-            LessonTypes.KobudoSai.name -> type = LessonTypes.KobudoSai
-            LessonTypes.KobudoTonfa.name -> type = LessonTypes.KobudoTonfa
-            LessonTypes.Kumite.name -> type = LessonTypes.Kumite
+    companion object {
+
+        @Volatile
+        private var INSTANCE: LessonRepository? = null
+
+        fun getInstance(): LessonRepository {
+            var instance: LessonRepository? = INSTANCE
+            if (instance == null) {
+                instance = LessonRepository()
+                instance.getDatabaseInstance()
+                INSTANCE = instance
+            }
+            return instance
         }
-        return Lesson(lesson.id, lesson.location, type, lesson.date, lesson.users)
     }
 
-    @Suppress("unused")
+/*
     fun addDefaultLessons() {
         val lesson1 = Lesson(
             "LW18032022",
@@ -273,19 +265,5 @@ class LessonRepository {
         addLesson(lesson8)
         addLesson(lesson9)
     }
-
-    companion object {
-
-        @Volatile
-        private var INSTANCE: LessonRepository? = null
-
-        fun getInstance(): LessonRepository {
-            var instance: LessonRepository? = INSTANCE
-            if (instance == null) {
-                instance = LessonRepository()
-                INSTANCE = instance
-            }
-            return instance
-        }
-    }
+ */
 }

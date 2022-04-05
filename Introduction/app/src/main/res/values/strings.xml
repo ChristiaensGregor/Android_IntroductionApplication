@@ -38,6 +38,10 @@
     <!-- Lesson Fragment -->
     <string name="participate">Participate</string>
     <string name="opt_out">Opt Out</string>
+    <string name="karate_club_question">Vul de code van je karate club in</string>
+    <string name="karate_club_button">Sluit je aan bij club</string>
+    <string name="qr_code_description">Icon depicting a qr code</string>
+    <string name="leave_karate_club">Leave Karate Club</string>
     <!-- Temp TODO Remove temp strings -->
 
 </resources>

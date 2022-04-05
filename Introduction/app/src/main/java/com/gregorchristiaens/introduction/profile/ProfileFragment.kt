@@ -30,4 +30,17 @@ class ProfileFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.user.observe(viewLifecycleOwner) {
+            if (it.karateClubId == null || it.karateClubId == "") {
+                binding.leaveKarateClub.visibility = View.GONE
+            }
+            else{
+                binding.leaveKarateClub.visibility = View.VISIBLE
+
+            }
+        }
+    }
 }

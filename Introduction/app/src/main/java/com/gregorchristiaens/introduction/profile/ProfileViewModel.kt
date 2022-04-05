@@ -11,4 +11,12 @@ class ProfileViewModel : ViewModel() {
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val database = UserRepository.getInstance()
     val user = database.user
+
+    fun leaveKarateClub() {
+        val u = user.value
+        if (u != null) {
+            u.karateClubId = null
+            database.addUser(u)
+        }
+    }
 }

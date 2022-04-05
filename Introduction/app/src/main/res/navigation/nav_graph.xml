@@ -60,7 +60,8 @@
     <fragment
         android:id="@+id/forgotPasswordFragment"
         android:name="com.gregorchristiaens.introduction.forgot.ForgotPasswordFragment"
-        android:label="ForgotPasswordFragment">
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password">
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -79,6 +80,9 @@
         <action
             android:id="@+id/action_menuFragment_to_lessonsFragment"
             app:destination="@id/lessonsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_karateClubFragment"
+            app:destination="@id/karateClubFragment" />
     </fragment>
     <fragment
         android:id="@+id/lessonsFragment"
@@ -88,10 +92,23 @@
         <action
             android:id="@+id/action_lessonsFragment_to_lessonFragment"
             app:destination="@id/lessonFragment" />
+        <action
+            android:id="@+id/action_lessonsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/lessonFragment"
         android:name="com.gregorchristiaens.introduction.lesson.LessonFragment"
         android:label="fragment_lesson"
         tools:layout="@layout/fragment_lesson" />
+    <fragment
+        android:id="@+id/karateClubFragment"
+        android:name="com.gregorchristiaens.introduction.karateclub.KarateClubFragment"
+        android:label="KarateClubFragment"
+        tools:layout="@layout/fragment_karate_club">
+        <action
+            android:id="@+id/action_karateClubFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment"
+            app:popUpTo="@id/menuFragment" />
+    </fragment>
 </navigation>
