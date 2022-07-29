@@ -6,8 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseError
-import com.gregorchristiaens.introduction.domain.KarateClub
 import com.gregorchristiaens.introduction.repository.KarateClubRepository
 import com.gregorchristiaens.introduction.repository.LessonRepository
 import com.gregorchristiaens.introduction.repository.UserRepository

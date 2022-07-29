@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.gregorchristiaens.introduction.repository.UserRepository
 import com.gregorchristiaens.introduction.R
 import com.gregorchristiaens.introduction.databinding.FragmentRegisterBinding
 

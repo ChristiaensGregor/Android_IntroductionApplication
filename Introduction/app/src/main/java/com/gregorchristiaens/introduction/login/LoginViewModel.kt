@@ -10,11 +10,10 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.gregorchristiaens.introduction.domain.User
-import com.gregorchristiaens.introduction.repository.KarateClubRepository
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 
-class LoginViewModel() : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     private val logKey = "IntroductionApp.LOGKEY.LoginViewModel"
 

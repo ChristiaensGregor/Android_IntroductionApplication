@@ -74,7 +74,7 @@ class KarateClubRepository : Repository() {
             Log.i("$logKey.getClubList", "Got ClubList ${it.value}")
             val list = ArrayList<String>()
             for (clubObject in it.children) {
-                val club = clubObject.getValue()
+                val club = clubObject.value
                 if (club == null) {
                     throw IllegalArgumentException("Could not convert the database object to the local Club class")
                 } else {

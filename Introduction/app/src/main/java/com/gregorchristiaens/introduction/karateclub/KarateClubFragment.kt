@@ -1,14 +1,11 @@
 package com.gregorchristiaens.introduction.karateclub
 
 import android.os.Bundle
-import android.util.Size
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageCapture
-import androidx.core.app.ActivityCompat
+
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.gregorchristiaens.introduction.R

@@ -15,7 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.gregorchristiaens.introduction.R
 import com.gregorchristiaens.introduction.databinding.FragmentLoginBinding
-import com.gregorchristiaens.introduction.repository.UserRepository
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.

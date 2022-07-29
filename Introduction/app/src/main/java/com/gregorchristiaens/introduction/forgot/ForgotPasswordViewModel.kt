@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.gregorchristiaens.introduction.repository.UserRepository
 
-class ForgotPasswordViewModel() : ViewModel() {
+class ForgotPasswordViewModel : ViewModel() {
 
     private val logKey = "IntroductionApp.LOGKEY.ForgotPasswordViewModel"
 

@@ -15,7 +15,7 @@ import java.lang.RuntimeException
 import java.lang.reflect.InvocationTargetException
 import kotlin.collections.ArrayList
 
-class LessonRepository() : Repository() {
+class LessonRepository : Repository() {
 
     private val logKey = "IntroductionApp.LOGKEY.LessonRepository"
 

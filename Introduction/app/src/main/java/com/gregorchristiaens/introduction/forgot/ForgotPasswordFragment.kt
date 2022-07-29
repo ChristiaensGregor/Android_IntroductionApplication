@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.navigation.Navigation
 import com.gregorchristiaens.introduction.R
 import com.gregorchristiaens.introduction.databinding.FragmentForgotPasswordBinding
@@ -23,7 +22,6 @@ class ForgotPasswordFragment : Fragment() {
      */
     private val binding get() = _binding!!
 
-    private val extraKey = object : CreationExtras.Key<String> {}
     private lateinit var viewModel: ForgotPasswordViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

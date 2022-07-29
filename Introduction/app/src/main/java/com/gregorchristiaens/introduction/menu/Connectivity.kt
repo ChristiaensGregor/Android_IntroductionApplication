@@ -19,10 +19,6 @@ class Connectivity(context: Context) {
         .build()
 
     private val networkCallback = object : ConnectivityManager.NetworkCallback() {
-        // network is available for use
-        override fun onAvailable(network: Network) {
-            super.onAvailable(network)
-        }
 
         // Network capabilities have changed for the network
         override fun onCapabilitiesChanged(
