@@ -10,12 +10,15 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.gregorchristiaens.introduction.domain.User
+import com.gregorchristiaens.introduction.repository.KarateClubRepository
 import com.gregorchristiaens.introduction.repository.UserRepository
 
 
-class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
+class LoginViewModel() : ViewModel() {
 
     private val logKey = "IntroductionApp.LOGKEY.LoginViewModel"
+
+    private var userRepository: UserRepository = UserRepository.getInstance()
 
     /**
      * [email] stores value entered in the email EditText.

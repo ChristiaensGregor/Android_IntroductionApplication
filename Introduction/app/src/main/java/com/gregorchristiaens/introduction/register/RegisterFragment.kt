@@ -24,13 +24,11 @@ class RegisterFragment : Fragment() {
      */
     private val binding get() = _binding!!
 
-    private lateinit var viewModelFactory: RegisterViewModelFactory
     private lateinit var viewModel: RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModelFactory = RegisterViewModelFactory(UserRepository.getInstance())
-        viewModel = ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
     }
 
     override fun onCreateView(

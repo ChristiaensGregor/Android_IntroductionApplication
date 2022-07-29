@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.navigation.Navigation
 import com.gregorchristiaens.introduction.R
 import com.gregorchristiaens.introduction.databinding.FragmentForgotPasswordBinding
-import com.gregorchristiaens.introduction.repository.UserRepository
 
 class ForgotPasswordFragment : Fragment() {
 
@@ -23,13 +23,13 @@ class ForgotPasswordFragment : Fragment() {
      */
     private val binding get() = _binding!!
 
+    private val extraKey = object : CreationExtras.Key<String> {}
     private lateinit var viewModel: ForgotPasswordViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModelFactory = ForgotPasswordViewModelFactory(UserRepository.getInstance())
         viewModel =
-            ViewModelProvider(this, viewModelFactory).get(ForgotPasswordViewModel::class.java)
+            ViewModelProvider(this)[ForgotPasswordViewModel::class.java]
     }
 
     override fun onCreateView(

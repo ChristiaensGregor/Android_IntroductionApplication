@@ -17,8 +17,8 @@ class KarateClubRepository : Repository() {
     private var _club = MutableLiveData<KarateClub>()
     val club: LiveData<KarateClub> get() = _club
 
-    private var _clubs = MutableLiveData<ArrayList<KarateClub>>()
-    val clubs: LiveData<ArrayList<KarateClub>> get() = _clubs
+    private var _clubList = MutableLiveData<ArrayList<String>>()
+    val clubList: LiveData<ArrayList<String>> get() = _clubList
 
     /**
      * addKarateClub
@@ -68,22 +68,39 @@ class KarateClubRepository : Repository() {
         }
     }
 
-    fun getKarateClubs() {
-        Log.d("$logKey.getKarateClubs", "Getting KarateClubs from Database")
-        database.get().addOnSuccessListener {
-            Log.i("$logKey.getKarateClubs", "Got KarateClub ${it.value}")
-            val list = ArrayList<KarateClub>()
-            for (karateClub in it.children) {
-                val club = karateClub.getValue(KarateClub::class.java)
+    fun getClubList() {
+        Log.d("$logKey.getClubList", "Getting KarateClubs from Database")
+        database.child("club_list").get().addOnSuccessListener {
+            Log.i("$logKey.getClubList", "Got ClubList ${it.value}")
+            val list = ArrayList<String>()
+            for (clubObject in it.children) {
+                val club = clubObject.getValue()
                 if (club == null) {
-                    throw IllegalArgumentException("Could not convert the database object to the local Lesson class")
+                    throw IllegalArgumentException("Could not convert the database object to the local Club class")
                 } else {
-                    list.add(club)
+                    list.add(club.toString())
                 }
             }
-            _clubs.value = list
+            _clubList.value = list
         }.addOnFailureListener {
-            Log.e("$logKey.getKarateClub", "Error getting data", it)
+            Log.e("$logKey.getClubList", "Error getting data", it)
+        }
+    }
+
+    fun addClubList(clubList: ArrayList<String>) {
+        try {
+            database.child("club_list").setValue(clubList)
+                .addOnCompleteListener {
+                    Log.d("$logKey.addClubList", "Saved ClubList: $clubList")
+                }
+                .addOnFailureListener {
+                    Log.d(
+                        "$logKey.addClubList",
+                        "Failed to save the KarateClub in firebase database", it
+                    )
+                }
+        } catch (err: InvocationTargetException) {
+            err.message?.let { Log.d(logKey, it) }
         }
     }
 

@@ -31,7 +31,10 @@ class MenuViewModel : ViewModel() {
         get() = _hasKarateClub
 
     init {
+        //Profile Preload in background
         auth.uid?.let { userRepository.getUser(it) }
+        //Karate Preload in background
+        karateClubRepository.getClubList()
         userRepository.user.value?.let {
             if (!it.karateClubId.isNullOrEmpty()) {
                 _hasKarateClub.value = true
@@ -40,7 +43,7 @@ class MenuViewModel : ViewModel() {
                 lessonRepository.karateClubId = it.karateClubId!!
                 lessonRepository.getLessons()
             } else {
-                karateClubRepository.getKarateClubs()
+                //karateClubRepository.getClubList()
                 _hasKarateClub.value = false
             }
         }
@@ -75,7 +78,7 @@ class MenuViewModel : ViewModel() {
                 return true
 
             } else {
-                karateClubRepository.getKarateClubs()
+                //karateClubRepository.getClubList()
                 _hasKarateClub.value = false
                 return false
             }

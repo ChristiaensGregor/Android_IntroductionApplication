@@ -5,15 +5,18 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.gregorchristiaens.introduction.domain.User
 import com.gregorchristiaens.introduction.repository.UserRepository
 
-class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
+class RegisterViewModel() : ViewModel() {
 
     private val logKey = "IntroductionApp.LOGKEY.RegisterViewModel"
+
+    private var userRepository: UserRepository = UserRepository.getInstance()
 
     var displayName = MutableLiveData<String>()
 
@@ -32,6 +35,15 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
     private var _registerError = MutableLiveData<String>()
     val registerError: LiveData<String>
         get() = _registerError
+
+/*    class Factory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
+                return RegisterViewModel(userRepository) as T
+            }
+            throw IllegalArgumentException("Unknown ViewModel class")
+        }
+    }*/
 
     fun register() {
         val displayName = displayName.value

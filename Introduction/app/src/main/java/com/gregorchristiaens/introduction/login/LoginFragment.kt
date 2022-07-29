@@ -38,7 +38,6 @@ class LoginFragment : Fragment() {
      * A great image representing the ViewModel lifecycle: https://developer.android.com/images/topic/libraries/architecture/viewmodel-lifecycle.png
      */
     private lateinit var viewModel: LoginViewModel
-    private lateinit var viewModelFactory: LoginViewModelFactory
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -60,8 +59,7 @@ class LoginFragment : Fragment() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-        viewModelFactory = LoginViewModelFactory(UserRepository.getInstance())
-        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding.viewmodel = viewModel
 
         return binding.root

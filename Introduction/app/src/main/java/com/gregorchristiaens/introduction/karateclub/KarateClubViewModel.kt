@@ -31,8 +31,8 @@ class KarateClubViewModel : ViewModel() {
                     .trim() != ""
             ) {
                 val karateClubId = karateClubCode.value!!
-                val clubs = karateClubRepository.clubs.value
-                if (clubs != null && clubs.map { club -> club.id }.contains(karateClubId)) {
+                val clubs = karateClubRepository.clubList.value
+                if (clubs != null && clubs.contains(karateClubId)) {
                     karateClubRepository.getKarateClub(karateClubId)
                     user.karateClubId = karateClubId
                     userRepository.addUser(user)

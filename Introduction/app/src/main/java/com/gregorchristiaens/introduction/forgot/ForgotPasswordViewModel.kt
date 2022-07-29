@@ -8,9 +8,11 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.gregorchristiaens.introduction.repository.UserRepository
 
-class ForgotPasswordViewModel(private val userRepository: UserRepository) : ViewModel() {
+class ForgotPasswordViewModel() : ViewModel() {
 
     private val logKey = "IntroductionApp.LOGKEY.ForgotPasswordViewModel"
+
+    private var userRepository: UserRepository = UserRepository.getInstance()
 
     var email = MutableLiveData<String>()
 
