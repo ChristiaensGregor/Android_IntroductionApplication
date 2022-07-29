@@ -1,5 +1,7 @@
 package com.gregorchristiaens.introduction.domain
 
+import java.lang.IllegalArgumentException
+
 @Suppress("JoinDeclarationAndAssignment")
 class DatabaseLesson() {
 
@@ -7,7 +9,7 @@ class DatabaseLesson() {
     lateinit var location: String
     lateinit var type: String
     lateinit var date: String
-    var users: ArrayList<String> = arrayListOf()
+    var users: ArrayList<String>? = arrayListOf()
 
     constructor(
         _id: String,
@@ -23,16 +25,28 @@ class DatabaseLesson() {
         users = _users
     }
 
+    /**
+     * @throws IllegalArgumentException
+     */
     fun convertToLesson(): Lesson {
-        var t: LessonTypes = LessonTypes.StandardIppan
-        when (type) {
-            LessonTypes.StandardIppan.name -> t = LessonTypes.StandardIppan
-            LessonTypes.KobudoBo.name -> t = LessonTypes.KobudoBo
-            LessonTypes.KobudoNunchaku.name -> t = LessonTypes.KobudoNunchaku
-            LessonTypes.KobudoSai.name -> t = LessonTypes.KobudoSai
-            LessonTypes.KobudoTonfa.name -> t = LessonTypes.KobudoTonfa
-            LessonTypes.Kumite.name -> t = LessonTypes.Kumite
+        if (this::id.isInitialized) {
+            return if (users.isNullOrEmpty()) {
+                Lesson(id, location, getLessonType(type), date, arrayListOf())
+            } else {
+                Lesson(id, location, getLessonType(type), date, users!!)
+            }
+        } else {
+            throw IllegalArgumentException("Could not convert DatabaseLesson due to missing values.")
         }
-        return Lesson(id, location, t, date, users)
+    }
+
+    /**
+     *@throws IllegalArgumentException
+     */
+    private fun getLessonType(typeString: String): LessonTypes {
+        for (type in LessonTypes.values()) {
+            if (type.name == typeString) return type
+        }
+        throw IllegalArgumentException("Could not find a matching LessonType for the string $typeString")
     }
 }
