@@ -18,27 +18,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@string/multi_logo_description"
-            android:src="@drawable/logo_group"
-            app:layout_constraintBottom_toTopOf="@id/beekeeping"
+            android:src="@drawable/logo_karate"
+            app:layout_constraintBottom_toTopOf="@id/karate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/beekeeping"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="20dp"
-            android:text="@string/beekeeping"
-            android:textColor="@color/primary"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/karate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo_group"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:strokeWidth="2dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/karate"
@@ -50,28 +34,11 @@
             android:text="@string/karate"
             android:textColor="@color/primary"
             app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/code_fever"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beekeeping"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/code_fever"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="20dp"
-            android:text="@string/codefever"
-            android:textColor="@color/primary"
-            app:backgroundTint="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/karate"
+            app:layout_constraintTop_toBottomOf="@+id/logo_group"
             app:strokeWidth="2dp" />
 
         <com.google.android.material.button.MaterialButton
@@ -88,7 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/code_fever"
+            app:layout_constraintTop_toBottomOf="@+id/karate"
             app:strokeWidth="2dp" />
 
         <com.google.android.material.button.MaterialButton

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.gregorchristiaens.introduction.repository.KarateClubRepository
 import com.gregorchristiaens.introduction.repository.LessonRepository
 import com.gregorchristiaens.introduction.repository.UserRepository
+import kotlin.math.log
 
 class KarateClubViewModel : ViewModel() {
 
@@ -32,6 +33,8 @@ class KarateClubViewModel : ViewModel() {
             ) {
                 val karateClubId = karateClubCode.value!!
                 val clubs = karateClubRepository.clubList.value
+                Log.d(logKey, clubs.toString())
+                Log.d(logKey, karateClubId.toString())
                 if (clubs != null && clubs.contains(karateClubId)) {
                     karateClubRepository.getKarateClub(karateClubId)
                     user.karateClubId = karateClubId
